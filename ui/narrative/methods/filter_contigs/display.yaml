@@ -31,11 +31,16 @@ parameters :
         ui-name : |
             Contig Set Name
         short-hint : |
-            The contig set to filter (will be overwritten)
+            The contig set to filter
     min_length :
         ui-name : |
             Min Length Threshold
         short-hint : |
             All contigs below this length will be removed
+    output_name:
+        ui-name: |
+            Filtered Contig Set Name
+        short-hint : |
+            Name the filtered contig set
 description : |
     <p>This is a simple method designed to illustrate the KBase SDK.</p>

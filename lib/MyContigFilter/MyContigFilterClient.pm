@@ -127,6 +127,7 @@ FilterContigsParams is a reference to a hash where the following keys are define
 	workspace has a value which is a MyContigFilter.workspace_name
 	contigset_id has a value which is a MyContigFilter.contigset_id
 	min_length has a value which is an int
+	output_name has a value which is a string
 workspace_name is a string
 contigset_id is a string
 FilterContigsResults is a reference to a hash where the following keys are defined:
@@ -150,6 +151,7 @@ FilterContigsParams is a reference to a hash where the following keys are define
 	workspace has a value which is a MyContigFilter.workspace_name
 	contigset_id has a value which is a MyContigFilter.contigset_id
 	min_length has a value which is an int
+	output_name has a value which is a string
 workspace_name is a string
 contigset_id is a string
 FilterContigsResults is a reference to a hash where the following keys are defined:
@@ -353,6 +355,7 @@ a reference to a hash where the following keys are defined:
 workspace has a value which is a MyContigFilter.workspace_name
 contigset_id has a value which is a MyContigFilter.contigset_id
 min_length has a value which is an int
+output_name has a value which is a string
 
 </pre>
 
@@ -364,6 +367,7 @@ a reference to a hash where the following keys are defined:
 workspace has a value which is a MyContigFilter.workspace_name
 contigset_id has a value which is a MyContigFilter.contigset_id
 min_length has a value which is an int
+output_name has a value which is a string
 
 
 =end text

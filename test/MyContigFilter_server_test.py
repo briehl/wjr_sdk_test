@@ -63,8 +63,8 @@ class MyContigFilterTest(unittest.TestCase):
         self.getWsClient().save_objects({'workspace': self.getWsName(), 'objects':
             [{'type': 'KBaseGenomes.ContigSet', 'name': obj_name, 'data': obj1}]})
         ret = self.getImpl().filter_contigs(self.getContext(), {'workspace': self.getWsName(), 
-            'contigset_id': obj_name, 'min_length': '10'})
-        obj2 = self.getWsClient().get_objects([{'ref': self.getWsName()+'/'+obj_name}])[0]['data']
+            'contigset_id': obj_name, 'min_length': '10', 'output_name': 'my_output'})
+        obj2 = self.getWsClient().get_objects([{'ref': self.getWsName()+'/'+'my_output'}])[0]['data']
         self.assertEqual(len(obj2['contigs']), 2)
         self.assertTrue(len(obj2['contigs'][0]['sequence']) >= 10)
         self.assertTrue(len(obj2['contigs'][1]['sequence']) >= 10)
@@ -75,18 +75,18 @@ class MyContigFilterTest(unittest.TestCase):
     def test_filter_contigs_err1(self):
         with self.assertRaises(ValueError) as context:
             self.getImpl().filter_contigs(self.getContext(), {'workspace': self.getWsName(), 
-                'contigset_id': 'fake', 'min_length': 10})
+                'contigset_id': 'fake', 'min_length': 10, 'output_name': 'fake'})
         self.assertTrue('Error loading original ContigSet object' in str(context.exception))
 
     def test_filter_contigs_err2(self):
         with self.assertRaises(ValueError) as context:
             self.getImpl().filter_contigs(self.getContext(), {'workspace': self.getWsName(), 
-                'contigset_id': 'fake', 'min_length': '-10'})
+                'contigset_id': 'fake', 'min_length': '-10', 'output_name': 'fake'})
         self.assertTrue('min_length parameter shouldn\'t be negative' in str(context.exception))
 
     def test_filter_contigs_err3(self):
         with self.assertRaises(ValueError) as context:
             self.getImpl().filter_contigs(self.getContext(), {'workspace': self.getWsName(), 
-                'contigset_id': 'fake', 'min_length': 'ten'})
+                'contigset_id': 'fake', 'min_length': 'ten', 'output_name': 'fake'})
         self.assertTrue('Cannot parse integer from min_length parameter' in str(context.exception))
         

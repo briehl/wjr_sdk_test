@@ -2,7 +2,7 @@ module-name:
     MyContigFilter
 
 module-description:
-    A KBase module
+    This filters contigs, extremely well.
 
 service-language:
     python

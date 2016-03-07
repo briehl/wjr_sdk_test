@@ -59,6 +59,9 @@ This sample module contains one small method - filter_contigs.
             raise ValueError('Parameter min_length is not set in input arguments')
         min_length_orig = params['min_length']
         min_length = None
+        if 'output_name' not in params:
+            raise ValueError('Parameter output_name is not set in input arguments')
+        output_name = params['output_name']
         try:
             min_length = int(min_length_orig)
         except ValueError:
@@ -121,7 +124,7 @@ This sample module contains one small method - filter_contigs.
 	                                {
 	                                    'type':'KBaseGenomes.ContigSet',
 	                                    'data':contigSet,
-	                                    'name':contigset_id,
+	                                    'name':output_name,
 	                                    'provenance':provenance
 	                                }
 	                            ]

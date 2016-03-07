@@ -21,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
     "workspace",
     "contigset_id",
-    "min_length"
+    "min_length",
+    "output_name"
 })
 public class FilterContigsParams {
 
@@ -31,6 +32,8 @@ public class FilterContigsParams {
     private String contigsetId;
     @JsonProperty("min_length")
     private Long minLength;
+    @JsonProperty("output_name")
+    private String outputName;
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("workspace")
@@ -78,6 +81,21 @@ public class FilterContigsParams {
         return this;
     }
 
+    @JsonProperty("output_name")
+    public String getOutputName() {
+        return outputName;
+    }
+
+    @JsonProperty("output_name")
+    public void setOutputName(String outputName) {
+        this.outputName = outputName;
+    }
+
+    public FilterContigsParams withOutputName(String outputName) {
+        this.outputName = outputName;
+        return this;
+    }
+
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;
@@ -90,7 +108,7 @@ public class FilterContigsParams {
 
     @Override
     public String toString() {
-        return ((((((((("FilterContigsParams"+" [workspace=")+ workspace)+", contigsetId=")+ contigsetId)+", minLength=")+ minLength)+", additionalProperties=")+ additionalProperties)+"]");
+        return ((((((((((("FilterContigsParams"+" [workspace=")+ workspace)+", contigsetId=")+ contigsetId)+", minLength=")+ minLength)+", outputName=")+ outputName)+", additionalProperties=")+ additionalProperties)+"]");
     }
 
 }

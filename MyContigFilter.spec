@@ -18,6 +18,7 @@ module MyContigFilter {
         workspace_name workspace;
         contigset_id contigset_id;
         int min_length;
+        string output_name;
     } FilterContigsParams;
 
     /* 
